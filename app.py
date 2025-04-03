@@ -14,7 +14,10 @@ app.config['JWT_SECRET_KEY'] = '8c3f24e76136444095078d39cd573727'
 jwt=JWTManager(app)
 CORS(app)
 
-
+@app.route("/")
+def home():
+    return jsonify({"message": "Flask app is running!"}), 200
+    
 @app.route("/register",methods=["POST"])
 def register_user():
     try:
